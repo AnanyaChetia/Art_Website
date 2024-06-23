@@ -1,0 +1,258 @@
+
+
+/* CSS Reset */
+*{
+margin: 0;
+padding :0;
+}
+
+/* CSS Variables */
+:root{
+    --navbar_height:59px;
+}
+/* Navigation Bar */
+
+/*navigation bar: logo and image */
+#logo{
+    margin:0.5px 20px 4px 20px;
+    padding: 5px;
+}
+#logo img{
+    height: 60px;
+    margin: 10px 20px;
+    
+}
+/*navigation bar: list stying */
+#navbar
+{
+    display: flex;
+    position: absolute;
+    /*  if we donot set navbar ase relative the 100% background black in the before tag, covers the entire screen, now it covers the entire navbar */
+    /* if we set it to absolute than we can set the nav bar at the top of the parent and due to the opacity effect it will look nice :)  */
+ height: 80px;
+ width: 100vw;
+}
+
+#navbar ul{
+    display: flex;
+}
+#navbar::before{
+    content: "";
+    background-color: black;
+    position:absolute;
+    height: 100%;
+    width:100%;
+    z-index: -2;
+    opacity: 0.5;
+
+}
+#navbar ul li{
+    list-style: none;
+    font-size: 1.3rem;
+    font-family: 'Baloo 2', cursive;
+    margin: 12px;
+    
+}
+#navbar ul li a{
+    color: antiquewhite; 
+    display: block;
+    /* by default it used to be inlinne, we made it block cause we need to give padding */
+    padding: 3px 12px;
+    border-radius:20px ;
+    text-decoration: none;
+}
+#navbar ul li a:hover{
+    color: rgb(27, 16, 2); 
+    background-color: antiquewhite;
+   
+}
+
+/* SECTION HOME */
+#home{
+    position: relative;
+    /* the relative position allows the before pseudod=selector's background to be applied on that perticular tag only*/
+    display: flex;
+    flex-direction: column;
+    padding: 3px 200px;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+#home:before{
+    content: "";
+    background:url(../image/pexels-photo-2179483.jpeg) no-repeat center center/cover;
+    /* the no repeat centre center 
+    /cover is important to cover the entire box */
+    /* since we are in the css folder we need to go out one step so (../), at that location we found image folder, we entered thet folder using(/) */
+    position:absolute;
+    top: 0px;
+    left: 0px;
+    /* this top 0px; left 0px; helps from where the picture starts */
+    height: 100%;
+    width:100vw;
+    z-index: -1;
+    opacity: 0.7;
+
+   
+}
+#home h1{
+    color: rgb(0, 7, 4);
+    text-align: center;
+    font-family:'The Nautigal','Smooch','Lobster','Indie Flower','Satisfy', 'cursive'; 
+
+}
+#home p{
+    color: rgb(0, 8, 6);
+    text-align: center;
+    font-family:'Smooch','Lobster','Indie Flower','Satisfy', 'cursive'; 
+}
+/* SERVICES SECTION */
+
+#services{
+    display: flex;
+    margin: 0px 34px;
+}
+#services .box {
+    /* border: 2px solid rgb(40, 37, 40); */
+    margin: 20px;
+    padding: 12px;
+    border-radius: 23px;
+    background-color: rgb(88, 234, 185);
+    box-shadow: inset 10px 10px 40px 40px rgb(180, 221, 221);
+
+}
+#services .box img{
+/* border: 2px solid rgb(21, 19, 21); */
+height: 400px;
+/* we set a height or width  , the other will adjust according to the requirement of its resolutopn */
+border-radius: 23px;
+display: block;
+margin: auto;
+/* margin auto works only in display block */
+}
+
+/* HR */
+hr{
+    padding :12px;
+    height: 4px;
+    color: blueviolet;
+
+}
+/* CLIENT SECTION */
+#client-section{
+  position: relative;
+}
+#client-section::before
+{
+content: " ";
+position: absolute;
+/* top: 0px; */
+left:0px;
+top:12px;
+bottom:12px;
+/* A VERY IMP SETTING TOP % BOTTOM % BEFORE ABSOLUTE  PARENT RELATIVE MAKES IT RESPONSIVE */
+background: url(../image/colors.jpg) no-repeat center center/cover;
+width: 100%;
+/* height: 50%; */
+z-index: -2;
+opacity: 0.4;
+}
+
+ #clients{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+#client-sections img{
+   height: 200px;
+
+}
+.client-items{
+    margin: 25px;
+    padding: 5px;
+}
+
+/* CONTACTS SECTION */
+
+#contact{
+    margin-top: 90px;
+    position: relative;}
+#contact:before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.4;
+    background: url(../image/cool-art-supplies-thumbnail-1.jpg) no-repeat center center/cover;
+}
+#contact-box textarea{
+    width: 100%;
+    padding :0.5rem;
+    font-family:'The Nautigal','Smooch','Lobster','Indie Flower','Satisfy', 'cursive' ;
+    border-radius: 20px;
+    font-size: 1.1rem;
+
+}
+#contact-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 35px; ;
+}
+#contact-box input, #contact-box textarea{
+    width: 100%;
+    padding:0.5rem;
+}
+#contact-box form{
+    width: 40%;
+    
+}
+#contact-box label{
+    font-size: 1.5rem;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+footer{
+    background-color: black;
+    color: aliceblue;
+    padding: 20px ;
+}
+
+
+/* UTILITY CLASS */
+/* creating classes helps us to reuse the same properties in some othe tags also  */
+.h-primary{
+    font-size: 3.8rem;
+    padding: 12px;
+   font-family: 'Baloo 2', cursive;
+}
+.h-secondary{
+    font-size: 2rem;
+    padding: 10px;
+    font-family: 'Baloo 2', cursive;
+}
+.btn{
+    margin: 20px;
+    padding: 6px 20px;
+    border: 2px solid rgb(172, 172, 227);
+    border-radius: 14px;
+    box-shadow: inset 3px 3px 15px 9px rgb(89, 208, 241);
+    background-color: blueviolet;
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in;
+}
+.btn:hover{
+    background-color: black;
+    box-shadow: inset 3px 3px 15px 9px rgb(52, 54, 55);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    
+}
+.center{
+    text-align: center;
+}
+
